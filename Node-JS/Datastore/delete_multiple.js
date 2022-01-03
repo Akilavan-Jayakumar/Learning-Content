@@ -2,6 +2,8 @@ const catalystSDK = require("zcatalyst-sdk-node");
 const express = require("express");
 const app = express();
 
+const DELETION_LIMIT = 100;
+
 app.use(express.json());
 
 app.delete("/multiple", async (req, res) => {
