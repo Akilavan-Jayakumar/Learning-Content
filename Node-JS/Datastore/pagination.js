@@ -24,7 +24,8 @@ app.get("/all", async (req, res) => {
       }
       const startIndex = currentPage * rowsPerPage + 1;
       const dataQuery = `SELECT Restaurants.ROWID,Restaurants.name,Restaurants.phone,
-                         Restaurants.city,Restaurants.rating,Restaurants.email FROM Restaurants 
+                         Restaurants.city,Restaurants.rating,Restaurants.email 
+                         FROM Restaurants 
                          LIMIT ${startIndex},${rowsPerPage}`;
       const dataResponse = await zcql.executeZCQLQuery(dataQuery);
       res.status(200).send({
